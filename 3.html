@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Third task - Filterable list</title>
+    <style>
+        /* GENERAL PROPERTIES */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ALL ELEMENTS STYLE */
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px 0 0 0;
+        }
+
+        .main-container__row {
+            margin: 15px 0;
+        }
+
+        .main-container__input {
+            margin: 0 10px 0 0;
+            border: 1px solid #000;
+            outline: none;
+            border-radius: 3px;
+            padding: 10px;
+            text-transform: none;
+        }
+
+        .main-container__button {
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background: #343A40;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .main-container__button:hover {
+            background: #6C757D;
+        }
+
+        .main-container__list {
+            width: 290px;
+            border-top: 1px solid #000;
+            margin: -1px 0 20px 0;
+        }
+
+        .main-container__list-item {
+            border: 1px solid #000;
+            border-top: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <form class="main-container__form">
+            <div class="main-container__row">
+                <label class="main-container__label" for="filterInput">Filter names:</label>
+            </div>
+            <div class="main-container__row">
+                <input class="main-container__input" type="text" name="text" id="filterInput" required>
+                <button class="main-container__button" type="submit">Search!</button>
+            </div>
+        </form>
+        <ul class="main-container__list">
+            <li class="main-container__list-item">Walmart</li>
+            <li class="main-container__list-item">State Grid</li>
+            <li class="main-container__list-item">Sinopec Group</li>
+            <li class="main-container__list-item">China National Petroleum</li>
+            <li class="main-container__list-item">Royal Dutch Shell</li>
+            <li class="main-container__list-item">Toyota Motor</li>
+            <li class="main-container__list-item">Volkswagen</li>
+            <li class="main-container__list-item">BP</li>
+            <li class="main-container__list-item">Exxon Mobil</li>
+            <li class="main-container__list-item">Berkshire Hathaway</li>
+        </ul>
+    </div>
+
+    <script>
+        let filterInput = document.querySelector('.main-container__input');
+        let filterButton = document.querySelector('.main-container__button');
+
+        function filteringNames(e) {
+
+            let filterValue = filterInput.value.toUpperCase();
+            let listContainer = document.querySelector('.main-container__list');
+            let listItems = document.querySelectorAll('.main-container__list-item');
+
+            let loopValue = 0;
+
+            for (let i = 0; i < listItems.length; i++) {
+                if (listItems[i].innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+                    listItems[i].style.display = '';
+                    if (loopValue !== listItems.length) {
+                        listContainer.style.borderTop = '';
+                    };
+                } else {
+                    listItems[i].style.display = 'none';
+                    loopValue++;
+                    if (loopValue === listItems.length) {
+                        listContainer.style.borderTop = 'none';
+                    };
+                };
+            };
+
+            e.preventDefault();
+
+        };
+
+        filterButton.addEventListener('click', filteringNames);
+    </script>
+
+</body>
+
+</html>

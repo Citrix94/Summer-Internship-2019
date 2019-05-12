@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Second task - Modal</title>
+    <style>
+        /* GENERAL PROPERTIES */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BUTTON STYLE */
+
+        .button {
+            width: 120px;
+            height: 45px;
+            background: #343A40;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            outline: none;
+            transition: all 0.2s;
+            margin: 40px 0 0 0;
+        }
+
+        .button:hover {
+            background: #6C757D;
+        }
+
+        /* MODAL STYLE */
+
+        .modal {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+            animation-name: modalOpenAnimation;
+            animation-duration: 0.5s;
+        }
+
+        .modal__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            height: 170px;
+            margin: 0 15px;
+            background: #1A1C22;
+            border-radius: 5px;
+            box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .modal__content-link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.2s;
+        }
+
+        .modal__content-link:hover {
+            letter-spacing: 2px;
+        }
+
+        /* MODAL ANIMATION */
+
+        @keyframes modalOpenAnimation {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="button">Open modal</button>
+
+    <div class="modal">
+        <div class="modal__content">
+            <a class="modal__content-link" href="./3.html" target="_blank">Third task</a>
+            <button class="button">Close modal</button>
+        </div>
+    </div>
+
+    <script>
+        let button = document.querySelectorAll('.button');
+        let modal = document.querySelector('.modal');
+
+        const openModal = () => {
+            modal.style.display = 'flex'
+        };
+        const closeModal = () => {
+            modal.style.display = 'none'
+        };
+
+        button[0].addEventListener('click', openModal);
+        button[1].addEventListener('click', closeModal);
+    </script>
+
+</body>
+
+</html>

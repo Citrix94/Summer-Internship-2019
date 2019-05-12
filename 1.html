@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First task - Layout & RWD</title>
+    <style>
+        /* GENERAL PROPERTIES */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* MAIN CONTAINER STYLE */
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* HEADER STYLE */
+
+        .page-header {
+            width: 100%;
+            height: 100px;
+            background: #1A1C22;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* CONTENT STYLE */
+
+        .content-wrapper {
+            height: 100%;
+            min-height: 630px;
+            padding: 115px 0 115px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-sidebar {
+            height: 50%;
+            background: #6C757D;
+        }
+
+        .main-wrapper {
+            height: 50%;
+        }
+
+        .main-wrapper__items {
+            height: 33.3%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 0 -15px;
+        }
+
+        .main-wrapper__item {
+            margin: 15px 0 0 15px;
+            background: #343A40;
+            flex: 1 1 0;
+        }
+
+        /* FOOTER STYLE */
+
+        .page-footer {
+            width: 100%;
+            height: 100px;
+            background: #1A1C22;
+            margin: -100px 0 0 0;
+        }
+
+        /* MEDIA QUERY > 600px */
+
+        @media (min-width: 600px) {
+            .main-wrapper__items {
+                flex-direction: row;
+            }
+        }
+
+        /* MEDIA QUERY > 900px */
+
+        @media (min-width: 900px) {
+            .content-wrapper {
+                flex-direction: row;
+                min-height: 615px;
+                padding: 100px 0 115px 0;
+            }
+
+            .page-sidebar {
+                height: auto;
+                min-width: 400px;
+                margin: 15px 0 0 0;
+            }
+
+            .main-wrapper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .main-wrapper__items {
+                margin: 0;
+            }
+        }
+
+        /* MEDIA QUERY > 1200px */
+
+        @media (min-width: 1200px) {
+            .main-wrapper {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .main-wrapper__items {
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="page-header"></header>
+        <div class="content-wrapper">
+            <aside class="page-sidebar"></aside>
+            <main class="main-wrapper">
+                <div class="main-wrapper__items">
+                    <div class="main-wrapper__item"></div>
+                    <div class="main-wrapper__item"></div>
+                </div>
+                <div class="main-wrapper__items">
+                    <div class="main-wrapper__item"></div>
+                    <div class="main-wrapper__item"></div>
+                </div>
+                <div class="main-wrapper__items">
+                    <div class="main-wrapper__item"></div>
+                    <div class="main-wrapper__item"></div>
+                </div>
+            </main>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+</body>
+
+</html>
